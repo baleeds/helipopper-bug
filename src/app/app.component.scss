@@ -1,0 +1,59 @@
+::ng-deep {
+  .tippy-box {
+    overflow: hidden;
+  }
+
+  .tippy-box[data-theme~='ik-menu'] {
+    background-color: transparent;
+    box-shadow: none;
+
+    .tippy-content {
+      padding: 0;
+      color: grey;
+    }
+  }
+
+  .tippy-box[data-placement*='top'] {
+    app-drop-down-menu {
+      border-top: 0;
+      border-bottom: 4px solid grey;
+      border-radius: 12px 12px 0 0;
+    }
+
+    /*
+     * We are using a min-height on the app-form-select-panel to ensure that it flips in the correct direction,
+     * even before loading the options.  But, in order to have the inner panel placed correctly in its parent,
+     * we need to drop the inner panel to the bottom when the parent is flipped up.
+     */
+    app-form-select-panel {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+  }
+
+  .tippy-box[data-placement*='left'] {
+    app-drop-down-menu {
+      border-top: 0;
+      border-right: 4px solid grey;
+      border-radius: 12px 0 0 12px;
+    }
+  }
+
+  .tippy-box[data-placement*='right'] {
+    app-drop-down-menu {
+      border-top: 0;
+      border-left: 4px solid grey;
+      border-radius: 0 12px 12px 0;
+    }
+  }
+
+  .tippy-content ul {
+    list-style: disc outside !important;
+    padding-left: 16px;
+
+    li + li {
+      margin-top: 8px;
+    }
+  }
+}
